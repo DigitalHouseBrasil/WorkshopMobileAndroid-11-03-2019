@@ -41,7 +41,6 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setAnimation(this);
         setContentView(R.layout.activity_detail);
 
         // Inicializa as views que serão utilizadas na activity
