@@ -60,9 +60,12 @@ public class DetailActivity extends AppCompatActivity {
 
         // Configuramos nas view os valores do quadrinho que pegamos
         textTitle.setText(result.getTitle());
-        textViewDescription.setText(Html.fromHtml(result.getDescription()));
         textViewPrice.setText("$" + result.getPrices().get(0).getPrice());
-        textViewPages.setText(result.getPageCount().toString());
+        textViewPages.setText(""+result.getPageCount());
+
+        if (result.getDescription() != null) {
+            textViewDescription.setText(Html.fromHtml(result.getDescription()));
+        }
 
         Picasso.get().load(result.getThumbnail().getPath() + "/portrait_incredible." + result.getThumbnail().getExtension())
                 .placeholder(R.drawable.marvel_logo)
