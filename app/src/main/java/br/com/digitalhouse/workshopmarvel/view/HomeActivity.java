@@ -32,30 +32,24 @@ public class HomeActivity extends AppCompatActivity {
         // Inicializa as views que serão utilizadas na activity
         initViews();
 
-
         // Busca na API da Marvel os quadrinhos para listarmos
-        viewModel.getComics();
 
         // Atualiza a lista com os quadriho buscados na API
         viewModel.getResults().observe(this, results -> {
-            adapter.update(results);
+
         });
 
         // Mostra a view de loaging na activity enquanto realizamos a busca na API
         viewModel.isLoasing().observe(this, loading -> {
-            if (loading) {
-                progressBar.setVisibility(View.VISIBLE);
-            } else {
-                progressBar.setVisibility(View.GONE);
-            }
+
         });
 
     }
 
     private void initViews() {
         viewModel = ViewModelProviders.of(this).get(ComicsViewModel.class);
-        recyclerComics = findViewById(R.id.recyclerComics);
-        progressBar = findViewById(R.id.progressBar);
+        //recyclerComics = findViewById(R.id.recyclerComics);
+        //progressBar = findViewById(R.id.progressBar);
         adapter = new RecyclerViewComicsAdapter(new ArrayList<>());
         recyclerComics.setHasFixedSize(true);
         recyclerComics.setItemViewCacheSize(20);
