@@ -22,20 +22,16 @@ public class ImagePopupActivity extends AppCompatActivity {
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_image_popup);
 
-        // Inicializa as views que serão utilizadas na activity
         imageComic = findViewById(R.id.imageComic);
         imageClose = findViewById(R.id.imageViewClose);
 
-        // Pegamos o quadrinho que que foi clicado na imagem anterior
         String image = getIntent().getStringExtra("image");
 
-        // Carregamos a imagem
         Picasso.get().load(image)
                 .placeholder(R.drawable.marvel_logo)
                 .error(R.drawable.marvel_logo)
                 .into(imageComic);
 
-        // Adidionamos o evento de click para fechar-mos a tela
         imageClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
